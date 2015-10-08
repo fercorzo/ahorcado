@@ -5,11 +5,15 @@ end
 
 When(/^ingreso "(.*?)"$/) do |letra|
   fill_in("letra", :with => letra)
-  click_button"aceptar"
+  click_button "aceptar"
 end
 
-
-Then(/^debo ver "Exito"$/) do 
-  "Exito"
+#Then(/^debo ver "Exito"$/) do 
+Then(/^debo ver "(.*?)"$/) do |t|
+  last_response.body.should =~ /#{t}/m
 end
+
+#Then(/^debo ver "Error"$/) do 
+#  "Error" 	
+#end
 
