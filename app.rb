@@ -9,7 +9,7 @@ end
 post '/' do
 	palabrasecreta = "auto"
 	letra=params["letra"]
-	resultado=buscarletra(palabrasecreta,letra)
+	@resultado=buscarletra(palabrasecreta,letra)
 	#respuesta=procesar(resultado)
 
 	erb :index
