@@ -1,20 +1,16 @@
 require 'sinatra'
-#require './lib/negocio.rb'
+require './lib/ahorcado_negocio.rb'
 
 get '/' do
-	@@palabrasecreta = "auto"
+	
     erb :index
 end
 
-post '/respuesta' do
-	#params[palabrasecreta]  
+post '/' do
+	palabrasecreta = "auto"
 	letra=params["letra"]
-	
-	resultado= "fracaso"
-	(0...@@palabrasecreta.length).each do |i|
-		if @@palabrasecreta[i]==letra
-			resultado= "Exito"
-		end 
-	end
-	resultado
+	resultado=buscarletra(palabrasecreta,letra)
+	#respuesta=procesar(resultado)
+
+	erb :index
 end
